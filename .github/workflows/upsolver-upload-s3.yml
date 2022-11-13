@@ -20,3 +20,11 @@ jobs:
     - name: Copy files to the production website with the AWS CLI
       run: |
         aws s3 sync . s3://upsolver-devops-exercise
+        
+    - name: "Run if changes have been detected"
+    if: steps.auto-commit-action.outputs.changes_detected == 'true'
+    run: echo "Changes!"
+
+  - name: "Run if no changes have been detected"
+    if: steps.auto-commit-action.outputs.changes_detected == 'false'
+    run: echo "No Changes!"
