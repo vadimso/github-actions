@@ -1,23 +1,22 @@
-name: Deploy to Kubernetes
-
+name: Build Docker Container
 on:
   push:
     branches:
       - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Kubernetes
-      uses: azure/k8s-set-context@v1
-      with:
-        method: kubeconfig
-        kubeconfig: ${{ secrets.KUBECONFIG }}
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: flask-pytorch-backend/dockerfiles/frontend.dockerfile
 
-    - name: Deploy to Kubernetes
-      run: kubectl apply -f path/to/your/kubernetes/manifests
+          push: true
+          tags: your-docker-repository:latest
