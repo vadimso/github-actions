@@ -7,6 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
 
     steps:
       - name: Checkout repository
@@ -14,8 +15,10 @@ jobs:
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
+ 
         with:
           context: ./dockerfiles
-          file: flask-pytorch-backend/tree/master/dockerfiles/frontend.dockerfile
+          run: |
+          working-directory: flask-pytorch-backend/tree/master/dockerfiles/frontend.dockerfile
           push: true
           tags: your-docker-repository:latest
