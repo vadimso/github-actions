@@ -16,8 +16,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
  
-        with:
-          run: |
-          working-directory: .flask-pytorch-backend/dockerfiles/
-          push: true
-          tags: your-docker-repository:latest
+      - run: ./flask-pytorch-backend/dockerfiles/
+
+     
+  
+     
