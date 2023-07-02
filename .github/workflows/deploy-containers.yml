@@ -17,8 +17,7 @@ jobs:
         uses: docker/build-push-action@v2
  
         with:
-          context: ./frontend.dockerfile
           run: |
-          working-directory: flask-pytorch-backend/dockerfiles/frontend.dockerfile
+          working-directory: flask-pytorch-backend/dockerfiles/
           push: true
           tags: your-docker-repository:latest
