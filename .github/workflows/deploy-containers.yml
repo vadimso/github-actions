@@ -18,6 +18,6 @@ jobs:
  
         with:
           run: |
-          working-directory: flask-pytorch-backend/dockerfiles/
+          working-directory: .flask-pytorch-backend/dockerfiles/
           push: true
           tags: your-docker-repository:latest
