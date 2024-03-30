@@ -1,11 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
   build:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
+
     steps:
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-        node-version: '20'
       - name: Checkout code
         uses: actions/checkout@v2
 
