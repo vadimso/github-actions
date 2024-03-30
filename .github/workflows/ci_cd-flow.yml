@@ -60,6 +60,8 @@ jobs:
       run: |
         sleep 10 # Wait for service to get an external IP
         kubectl get svc <service-name> -o=jsonpath='{.status.loadBalancer.ingress[0].ip}'
+        
+    - name: Output IP service external IP
+        run: |
+          echo "Service External IP: ${{ steps.get-ip.outputs }}"
 
-    - name: Output service external IP
-      run: echo "Service External IP: ${{ steps.get-ip.outputs }}"
