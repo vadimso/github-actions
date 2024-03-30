@@ -48,3 +48,4 @@ jobs:
       - name: Output IP
         run: |
           echo "Service External IP: ${{ steps.get-ip.outputs.result }}"
+          
