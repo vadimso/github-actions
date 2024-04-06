@@ -20,13 +20,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up kubectl
-        uses: docker://lachlanevenson/k8s-kubectl:v1.21.2
-        with:
-          args:
-            install
-            --install-path=/usr/local/bin
-            --symlink
+    
 
       - name: Set up kind
         uses: docker://kindest/node:v1.21.2
